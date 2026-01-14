@@ -4,243 +4,507 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Allied Medical Services Ltd | Professional Embalming & Funeral Logistics Nigeria</title>
-    <meta name="description" content="Nigeria's premier embalming and dead body transportation service. Available 24/7 across Aba, Anambra, and nationwide. Compassionate and professional care.">
-    <meta name="keywords" content="embalming services Nigeria, dead body transportation Aba, funeral logistics Anambra, Allied Medical Services, morgue services Nigeria">
-    <link rel="canonical" href="https://yourdomain.com/">
+    <title>Allied Medical Services Ltd | Professional Embalming & Funeral Services</title>
+    <meta name="description" content="Allied Medical Services Ltd provides professional embalming, body preservation, and 24/7 funeral support services across Aba, Anambra, and Nigeria.">
+    <meta name="keywords" content="Embalming, Funeral Services, Ambulance, Body Preservation, Allied Medical Services, Nigeria, Aba, Anambra">
     
-    <meta property="og:title" content="Allied Medical Services Ltd | Professional Embalming">
-    <meta property="og:description" content="Professional embalming and dead body transportation across Nigeria, available 24/7.">
-    <meta property="og:type" content="website">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Allied Medical Services Ltd",
-      "image": "logo.png",
-      "description": "Professional embalming and dead body transportation across Nigeria.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Km2, Aba–Enugu Expressway, Osisioma",
-        "addressLocality": "Aba",
-        "addressRegion": "Abia State",
-        "addressCountry": "NG"
-      },
-      "telephone": "+2348034914899",
-      "url": "https://yourdomain.com"
-    }
-    </script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --blue: #051C2E; /* Deeper, more premium navy */
+            --blue: #0B3C5D;
             --gold: #C9A24D;
             --white: #ffffff;
-            --soft-bg: #F8F9FA;
-            --text-dark: #2D3436;
-            --text-muted: #636E72;
-            --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --glass: #ffffff; /* Changed Header Background to White */
+            --bg-light: #f9f9f9;
+            /* Section Variables */
+            --primary: #0B3C5D;
+            --accent: #C9A24D;
+            --text-main: #2D3436;
+            --text-light: #636E72;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; color: var(--text-dark); line-height: 1.7; background-color: var(--white); overflow-x: hidden; }
+        /* RESET & BASE */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
 
-        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+        body { overflow-x: hidden; background-color: var(--white); }
 
-        /* ================= PREMIUM HEADER ================= */
+        /* ================= HEADER ================= */
         header {
-            position: fixed; top: 0; left: 0; width: 100%; height: 80px;
-            padding: 0 5%; display: flex; align-items: center; justify-content: space-between;
-            background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.05);
-            z-index: 1000; transition: var(--transition-smooth);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            background: var(--glass);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            z-index: 1000;
         }
-        header.scrolled { height: 65px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .logo img { height: 55px; transition: var(--transition-smooth); }
-        header.scrolled .logo img { height: 45px; }
 
-        .hamburger { display: flex; flex-direction: column; gap: 6px; cursor: pointer; }
-        .hamburger span { width: 28px; height: 2px; background: var(--blue); transition: 0.3s; }
+        .logo img { height: 50px; }
 
-        /* ================= HERO SECTION ================= */
-        .hero { height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
+        .hamburger span { width: 30px; height: 2px; background: var(--blue); transition: 0.3s; } /* Changed to blue for visibility */
+
+        /* ================= NAV ================= */
+        nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--blue);
+            display: flex; align-items: center; justify-content: center;
+            transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+            z-index: 999;
+        }
+        nav.active { right: 0; }
+        nav ul { list-style: none; text-align: center; }
+        nav ul li { margin: 2rem 0; }
+        nav ul li a { color: var(--white); text-decoration: none; font-size: 1.5rem; font-weight: 700; }
+
+        /* ================= HERO & ZOOM ================= */
+        .hero { height: 100vh; position: relative; overflow: hidden; }
+        .hero-bg-layer { position: absolute; inset: 0; z-index: 0; }
         .hero-bg-layer div {
-            position: absolute; inset: 0; background-position: center; background-size: cover;
-            opacity: 0; transition: opacity 2s ease-in-out; transform: scale(1.1);
+            position: absolute; inset: 0;
+            background-position: center; background-size: cover; background-repeat: no-repeat;
+            opacity: 0; transition: opacity 1.5s ease-in-out;
+            transform: scale(1); 
         }
-        .hero-bg-layer div.active { opacity: 1; transform: scale(1); }
+        .hero-bg1 { background-image: url("hero1-bg.jpg"); }
+        .hero-bg2 { background-image: url("hero2-bg.jpg"); }
+        .hero-bg-layer div.active {
+            opacity: 1;
+            animation: zoomHero 20s ease-out forwards;
+            animation-delay: 0.5s;
+        }
         .hero::after {
             content: ""; position: absolute; inset: 0;
-            background: rgba(5, 28, 46, 0.6); z-index: 1;
+            background: linear-gradient(to bottom, rgba(11, 60, 93, 0.8), rgba(11, 60, 93, 0.4), rgba(11, 60, 93, 0.8));
+            z-index: 1;
         }
 
-        .hero-slide { position: relative; z-index: 2; text-align: center; color: var(--white); padding: 0 10%; }
-        .hero-slide h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 1.5rem; letter-spacing: -1px; }
-        .hero-slide p { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 2rem; color: var(--gold); font-weight: 300; }
-
-        .btn-premium {
-            padding: 18px 45px; background: var(--gold); color: var(--blue);
-            text-decoration: none; font-weight: 700; border-radius: 0; /* Sharp corners = More Architectural/Premium */
-            display: inline-block; transition: var(--transition-smooth); border: 1px solid var(--gold);
+        .hero-slide {
+            position: absolute; inset: 0;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; color: var(--white);
+            z-index: 2; padding: 0 10%;
+            opacity: 0; visibility: hidden; transition: opacity 1.5s ease;
         }
-        .btn-premium:hover { background: transparent; color: var(--white); }
+        .hero-slide.active { opacity: 1; visibility: visible; }
 
-        /* ================= ABOUT: OVERLAP LAYOUT ================= */
-        #about { padding: 120px 10%; position: relative; background: var(--soft-bg); }
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .about-img-box { position: relative; }
-        .about-img-box img { width: 100%; height: auto; border-radius: 4px; box-shadow: 30px 30px 0px var(--gold); }
-        .about-text-box { padding: 40px; background: var(--white); margin-left: -100px; position: relative; z-index: 2; box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
-        
-        /* ================= CONTACT: GRID UPGRADE ================= */
-        .locations-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 50px; }
-        .branch-box { background: var(--white); padding: 40px; border-left: 4px solid var(--gold); transition: var(--transition-smooth); }
-        .branch-box:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-        
-        /* ================= SERVICES ================= */
-        .services-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .service-card { padding: 50px 30px; background: var(--soft-bg); text-align: center; border: 1px solid transparent; transition: var(--transition-smooth); }
-        .service-card:hover { border-color: var(--gold); background: var(--white); }
-        .service-card h3 { margin: 20px 0; font-size: 1.8rem; }
+        .hero-inner h1 { font-size: clamp(1.8rem, 7vw, 3rem); font-weight: 800; margin-bottom: 1rem; animation: slideUp 1s ease forwards; }
+        .hero-inner h2 { font-size: clamp(0.9rem, 4vw, 1.2rem); font-weight: 400; margin-bottom: 2rem; opacity: 0; animation: slideUp 1s ease forwards 0.2s; }
 
-        /* REVEAL ANIMATION */
-        .reveal { opacity: 0; transform: translateY(50px); transition: 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .hero-info { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 2rem; opacity: 0; animation: fadeUp 1s ease forwards 0.4s; }
+        .hero-info p { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 0.85rem; }
+        .hero-info img { width: 16px; filter: brightness(0) invert(1); }
+        .hero-info a { color: var(--white); text-decoration: none; }
+        
+        .location-group { margin-bottom: 15px; }
+
+        .btn {
+            display: inline-block; padding: 1rem 2.5rem; background: var(--gold); color: #000;
+            text-decoration: none; font-weight: 700; border-radius: 50px;
+            transition: 0.3s; opacity: 0; animation: fadeUp 1s ease forwards 0.6s;
+        }
+
+        /* ================= ABOUT SECTION ================= */
+        #about {
+            padding: 100px 10%;
+            background: var(--bg-light);
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+        }
+        .about-header { font-size: 2.5rem; color: var(--blue); margin-bottom: 1.5rem; }
+        .about-subtext { font-size: 1.1rem; line-height: 1.8; color: #444; max-width: 800px; margin-bottom: 3rem; }
+        .about-image { max-width: 700px; width: 100%; margin-bottom: 3rem; }
+        .about-image img { width: 100%; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        
+        .about-btn {
+            padding: 1rem 2.5rem; background: var(--blue); color: #fff;
+            font-weight: 700; text-decoration: none; border-radius: 50px;
+            transition: 0.3s; border: 2px solid var(--blue);
+        }
+        .about-btn:hover { background: transparent; color: var(--blue); }
+
+        /* ================= CONTACT SECTION ================= */
+        .contact-hero {
+            height: 50vh;
+            background: linear-gradient(rgba(11, 60, 93, 0.85), rgba(11, 60, 93, 0.85)), 
+                        url("contact-hero.jpg") center/cover no-repeat;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; color: var(--white);
+        }
+        .contact-container { max-width: 1100px; margin: 60px auto 100px; padding: 0 20px; }
+        .contact-card-main { background: var(--white); border-radius: 24px; padding: 60px; box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
+        .locations-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .branch-box { background: #ffffff; padding: 30px; border-radius: 16px; border: 1px solid #ebeef2; transition: var(--transition); display: flex; flex-direction: column; }
+        .branch-box:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .branch-box h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 12px; text-align: left; }
+        .branch-box p { color: var(--text-light); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; text-align: left; }
+        .map-icon-label { font-size: 0.75rem; color: var(--accent); font-weight: bold; text-transform: uppercase; margin-bottom: 5px; display: block; text-align: left;}
+        .address-link { text-decoration: none; color: inherit; display: block; transition: var(--transition); }
+        .call-btn { display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--bg-light); color: var(--primary); text-decoration: none; padding: 12px; border-radius: 10px; font-weight: 700; transition: var(--transition); margin-bottom: 10px; }
+        .call-btn:hover { background: var(--primary); color: white; }
+        .action-footer { margin-top: 60px; padding: 40px; background: #f8fafc; border-radius: 16px; text-align: center; }
+        .big-call-btn { display: inline-block; background: var(--accent); color: var(--primary); padding: 18px 45px; border-radius: 50px; text-decoration: none; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-top: 20px; transition: var(--transition); animation: pulse 2s infinite; }
+
+        /* ================= SERVICES SECTION ================= */
+        #services { padding: 100px 10%; background: var(--white); text-align: center; }
+        .services-header { font-size: 2.5rem; color: var(--blue); margin-bottom: 3rem; }
+        .services-cards { display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: center; }
+        
+        .service-card {
+            background: var(--bg-light); border-radius: 15px; padding: 3rem 2rem; 
+            max-width: 350px; flex: 1; transition: 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .service-card img { width: 70px; margin-bottom: 1.5rem; }
+        .service-card h3 { color: var(--blue); margin-bottom: 1rem; font-size: 1.4rem; }
+        .service-card p { font-size: 0.95rem; color: #555; line-height: 1.7; margin-bottom: 2rem; }
+        
+        .service-card .btn-small {
+            display: inline-block; padding: 0.8rem 1.8rem; background: var(--blue);
+            color: #fff; font-weight: 700; text-decoration: none; border-radius: 50px;
+            transition: 0.3s; font-size: 0.85rem;
+        }
+        .service-card .btn-small:hover { background: var(--gold); color: #000; }
+
+        /* ===== FACILITY SLIDER STYLES ===== */
+        .facility-slider{ position:relative; max-width:1100px; margin:0 auto; overflow:hidden; }
+        .facility-track{ display:flex; transition:transform 0.6s ease-in-out; }
+        .facility-slide{ min-width:100%; }
+        .facility-slide img{ width:100%; height:500px; object-fit:cover; border-radius:8px; }
+        .facility-btn{ position:absolute; top:50%; transform:translateY(-50%); background:rgba(11,60,93,0.7); color:#fff; border:none; width:50px; height:50px; font-size:1.5rem; cursor:pointer; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:background 0.3s ease; z-index:10; }
+        .facility-btn:hover{ background:rgba(11,60,93,0.9); }
+        .facility-btn.prev{ left:20px; }
+        .facility-btn.next{ right:20px; }
+
+        /* ================= FOOTER STYLES ================= */
+        .site-footer {
+            background: var(--blue);
+            color: var(--white);
+            padding: 80px 10% 30px;
+            margin-top: 50px;
+        }
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .footer-brand img { height: 60px; margin-bottom: 20px; }
+        .footer-brand p { font-size: 0.9rem; line-height: 1.6; opacity: 0.8; }
+        .footer-links h4, .footer-locations h4 { font-size: 1.2rem; margin-bottom: 25px; color: var(--gold); }
+        .footer-links ul { list-style: none; }
+        .footer-links ul li { margin-bottom: 12px; }
+        .footer-links ul li a { color: var(--white); text-decoration: none; font-size: 0.9rem; transition: 0.3s; opacity: 0.8; }
+        .footer-links ul li a:hover { opacity: 1; color: var(--gold); padding-left: 5px; }
+        .footer-locations .location { margin-bottom: 20px; }
+        .footer-locations .location strong { display: block; font-size: 0.9rem; margin-bottom: 5px; }
+        .footer-locations .location a { display: block; color: var(--white); text-decoration: none; font-size: 0.85rem; opacity: 0.7; margin-bottom: 5px; line-height: 1.4; }
+        .footer-locations .location a:hover { opacity: 1; color: var(--gold); }
+        .footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; opacity: 0.6; }
+
+        /* Animation Classes */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 1.2s cubic-bezier(0.17, 0.67, 0.83, 0.67); }
         .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        /* FLOAT BUTTON */
+        /* FLOATING PHONE */
         .call-float {
-            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
-            background: var(--gold); border-radius: 50%; display: flex; align-items: center;
-            justify-content: center; z-index: 1001; box-shadow: 0 10px 30px rgba(201, 162, 77, 0.4);
+            position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px;
+            border-radius: 50%; background: var(--gold);
+            display: flex; align-items: center; justify-content: center;
+            z-index: 1001; box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            animation: buzz 2s infinite;
         }
+        .call-float img { width: 28px; }
 
-        /* MOBILE FIXES */
-        @media (max-width: 992px) {
-            .about-grid { grid-template-columns: 1fr; }
-            .about-text-box { margin-left: 0; margin-top: -50px; }
-            .hero-slide h1 { font-size: 2.5rem; }
+        /* KEYFRAMES */
+        @keyframes zoomHero { from { transform: scale(1); } to { transform: scale(1.12); } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes buzz { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        @media(max-width:768px){
+            .facility-slide img{ height:300px; }
+            .contact-card-main { padding: 20px; }
+            .contact-hero { height: 30vh; }
+            .site-footer { padding: 60px 5% 30px; text-align: center; }
+            .footer-links ul li a:hover { padding-left: 0; }
         }
     </style>
 </head>
 <body>
 
-<header id="mainHeader">
-    <a href="index.html" class="logo"><img src="logo.png" alt="Allied Medical Services Logo"></a>
-    <div class="hamburger" id="menuBtn">
-        <span></span><span></span><span></span>
-    </div>
+<header>
+    <div class="hamburger" id="menuBtn"><span></span><span></span><span></span></div>
+    <a href="index.html" class="logo"><img src="logo.png" alt="Allied Medical Services Logo" loading="lazy"></a>
 </header>
 
-<nav id="navMenu" style="position:fixed; top:0; right:-100%; width:300px; height:100vh; background:var(--blue); z-index:999; transition:0.5s; padding:100px 40px;">
-    <ul style="list-style:none;">
-        <li style="margin-bottom:30px;"><a href="#about" style="color:white; text-decoration:none; font-size:1.5rem; font-family:'Playfair Display';">About Us</a></li>
-        <li style="margin-bottom:30px;"><a href="#services" style="color:white; text-decoration:none; font-size:1.5rem; font-family:'Playfair Display';">Our Services</a></li>
-        <li style="margin-bottom:30px;"><a href="#contact" style="color:white; text-decoration:none; font-size:1.5rem; font-family:'Playfair Display';">Contact</a></li>
+<nav id="navMenu">
+    <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
 
 <section class="hero">
     <div class="hero-bg-layer">
-        <div class="hero-bg1 active" style="background-image: url('hero1-bg.jpg');"></div>
+        <div class="hero-bg1 active" id="bgOne"></div>
+        <div class="hero-bg2" id="bgTwo"></div>
     </div>
-    <div class="hero-slide">
-        <p class="reveal">Est. Professionalism & Care</p>
-        <h1 class="reveal">Dignity in Every Process.</h1>
-        <a href="#contact" class="btn-premium reveal">Emergency 24/7 Support</a>
+    
+    <div class="hero-slide active" id="heroOne">
+        <div class="hero-inner">
+            <h1>Allied Medical Services Ltd</h1>
+            <h2>Original Embalming Services East of the Niger</h2>
+            <div class="hero-info">
+                <p><img src="location.png" loading="lazy"> <a href="#">Km2, Aba–Enugu Expressway, Osisioma, Aba, Abia State</a></p>
+                <p><img src="phone.png" loading="lazy"> <a href="tel:08034914899">0803 491 4899</a></p>
+            </div>
+            <a href="about.html" class="btn">Learn More</a>
+        </div>
+    </div>
+
+    <div class="hero-slide" id="heroTwo">
+        <div class="hero-inner">
+            <h1>We Are Accessible 24/7</h1>
+            <div class="hero-info">
+                <div class="location-group">
+                    <p><img src="location.png" loading="lazy"> <a href="#">Km2, Aba–Enugu Expressway, Osisioma, Aba, Abia State</a></p>
+                    <p><img src="phone.png" loading="lazy"> <a href="tel:08034914899">0803 491 4899</a></p>
+                </div>
+                <div class="location-group">
+                    <p><img src="location.png" loading="lazy"> <a href="#">Nkwelle Expressway, Anambra State</a></p>
+                    <p><img src="phone.png" loading="lazy"> <a href="tel:+2347056789351">+234 705 678 9351</a></p>
+                </div>
+            </div>
+            <a href="contact.html" class="btn">Emergency Call</a>
+        </div>
     </div>
 </section>
 
 <section id="about">
-    <div class="about-grid">
-        <div class="about-img-box reveal">
-            <img src="about-placeholder.jpg" alt="Our Medical Facility">
-        </div>
-        <div class="about-text-box reveal">
-            <h2 style="font-size: 2.5rem; color: var(--blue); margin-bottom: 20px;">Compassion Meets Professionalism</h2>
-            <p style="color: var(--text-muted); margin-bottom: 30px;">
-                With decades of experience, Allied Medical Services Ltd stands as a beacon of trust East of the Niger. We specialize in world-class embalming, state-of-the-art preservation, and seamless funeral logistics, ensuring your loved ones are handled with the utmost respect.
-            </p>
-            <a href="about.html" style="color: var(--gold); text-decoration: none; font-weight: 700; border-bottom: 2px solid var(--gold);">Discover Our Legacy</a>
-        </div>
-    </div>
+  <h2 class="about-header reveal">About Us</h2>
+  <p class="about-subtext reveal">
+    Allied Medical Services provides professional embalming, body preservation, and funeral support services across Nigeria. Our team is dedicated to handling every process with care, respect, and professionalism, ensuring peace of mind for families during difficult times.
+  </p>
+  <div class="about-image reveal">
+    <img src="about-placeholder.jpg" alt="Allied Medical Services Facility" loading="lazy">
+  </div>
+  <a href="about.html" class="about-btn reveal">Learn More</a>
 </section>
 
-<section id="services" style="padding: 100px 10%;">
-    <h2 class="reveal" style="text-align:center; font-size: 3rem; margin-bottom: 60px;">Bespoke Care Services</h2>
-    <div class="services-cards">
-        <div class="service-card reveal">
-            <h3 class="serif">Professional Embalming</h3>
-            <p>Advanced chemical preservation using modern medical standards to maintain natural appearance.</p>
-        </div>
-        <div class="service-card reveal">
-            <h3 class="serif">State-wide Transit</h3>
-            <p>A fleet of modern ambulances and hearses for secure, dignified transportation across Nigeria.</p>
-        </div>
-        <div class="service-card reveal">
-            <h3 class="serif">Casket Artistry</h3>
-            <p>A curated selection of premium wood and metal caskets, handcrafted to celebrate a life well-lived.</p>
-        </div>
-    </div>
+<section class="contact-hero reveal">
+  <div class="hero-content">
+    <h1>Contact Us</h1>
+    <p>Professional embalming and dead body transportation across Nigeria, available 24/7.</p>
+  </div>
 </section>
 
-<section id="contact" style="padding: 100px 10%; background: var(--soft-bg);">
-    <h2 class="reveal" style="text-align:center; font-size: 2.5rem;">Our Regional Hubs</h2>
+<section class="contact-container reveal" id="contact">
+  <div class="contact-card-main">
+    <div class="header-block">
+      <h2 style="color:var(--primary); margin-bottom: 30px; font-size: 2rem;">Our Locations & Phone Numbers</h2>
+    </div>
+
     <div class="locations-grid">
-        <div class="branch-box reveal">
-            <h3>Aba Central</h3>
-            <p>Km2, Aba–Enugu Expressway, Osisioma, Aba, Abia State</p>
-            <a href="tel:08034914899" style="color:var(--gold); font-weight:700; text-decoration:none;">Call 0803 491 4899</a>
-        </div>
-        <div class="branch-box reveal">
-            <h3>Anambra Hub</h3>
-            <p>Nkwelle Expressway, Anambra State</p>
-            <a href="tel:+2347056789351" style="color:var(--gold); font-weight:700; text-decoration:none;">Call +234 705 678 9351</a>
-        </div>
+      <div class="branch-box">
+        <h3>Allied Medical Services Ltd Aba</h3>
+        <a href="https://www.google.com/maps/search/?api=1&query=Km2+Aba-Enugu+Expressway+Osisioma+Aba+Abia+State" target="_blank" class="address-link">
+          <span class="map-icon-label"> View on Map</span>
+          <p class="address-text">Km2, Aba–Enugu Expressway, Osisioma, Aba, Abia State</p>
+        </a>
+        <a href="tel:08034914899" class="call-btn">0803 491 4899</a>
+      </div>
+
+      <div class="branch-box">
+        <h3>Allied Medical Services Limited Nkwelle</h3>
+        <a href="https://www.google.com/maps/search/?api=1&query=Nkwelle+Expressway+Anambra+State" target="_blank" class="address-link">
+          <span class="map-icon-label">View on Map</span>
+          <p class="address-text">Nkwelle Expressway, Anambra State</p>
+        </a>
+        <a href="tel:+2347056789351" class="call-btn">+234 705 678 9351</a>
+      </div>
+
+      <div class="branch-box">
+        <h3>Allied Medical Services Ltd Igbo-ukwu (Apex)</h3>
+        <a href="https://www.google.com/maps/search/?api=1&query=Apex+Specialist+Igbo-Ukwu+Aguata+Anambra" target="_blank" class="address-link">
+          <span class="map-icon-label"> View on Map</span>
+          <p class="address-text">Igbo-Ukwu, Aguata LGA, Anambra State, Nigeria</p>
+        </a>
+        <a href="tel:+2348086005243" class="call-btn">+234 808 600 5243</a>
+        <a href="tel:+2348150409411" class="call-btn">+234 815 040 9411</a>
+      </div>
+
+      <div class="branch-box">
+        <h3>Allied medical services limited Awka(Apex)</h3>
+        <a href="https://www.google.com/maps/search/?api=1&query=Apex+Drive+Secretariat+Road+Awka+Anambra" target="_blank" class="address-link">
+          <span class="map-icon-label"> View on Map</span>
+          <p class="address-text">
+            Apex Drive, Off Secretariat Road,<br>
+            Awka South Local Government,<br>
+            Anambra State, Nigeria
+          </p>
+        </a>
+      </div>
     </div>
+
+    <div class="action-footer">
+      <p>If you need immediate assistance, please call any of the numbers above.</p>
+      <a href="tel:08034914899" class="big-call-btn">Speak to Us Now</a>
+    </div>
+  </div>
 </section>
 
-<footer style="padding: 80px 10%; background: var(--blue); color: white;">
-    <div style="text-align: center;">
-        <img src="logo.png" alt="Footer Logo" style="height: 60px; filter: brightness(0) invert(1); margin-bottom: 20px;">
-        <p style="opacity: 0.6; font-size: 0.9rem;">&copy; <span id="year"></span> Allied Medical Services Ltd. Professionalism in Preservation.</p>
+<section id="services">
+  <h2 class="services-header reveal">Our Services</h2>
+  <div class="services-cards">
+    <div class="service-card reveal">
+      <img src="embalming.png" alt="Embalming Service" loading="lazy">
+      <h3>Embalming</h3>
+      <p>Expert embalming and body care services that preserve dignity and ensure peace of mind for families.</p>
+      <a href="embalming.html" class="btn-small">Learn More</a>
     </div>
+    <div class="service-card reveal">
+      <img src="ambulance.png" alt="Ambulance Service" loading="lazy">
+      <h3>Ambulance</h3>
+      <p>Fast and reliable ambulance services, including safe transportation of patients and bodies across Nigeria.</p>
+      <a href="ambulance.html" class="btn-small">Learn More</a>
+    </div>
+    <div class="service-card reveal">
+      <img src="coffins.png" alt="Coffins Service" loading="lazy">
+      <h3>Coffins</h3>
+      <p>High-quality coffins and caskets, crafted with care and ready for timely delivery to meet your needs.</p>
+      <a href="coffins.html" class="btn-small">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<section id="facilities" style="padding:80px 0; background:#f9f9f9;">
+  <h2 style="text-align:center; font-size:2rem; color:#0B3C5D; margin-bottom:2.5rem;">Our Facilities</h2>
+  <div class="facility-slider">
+      <div class="facility-track" id="track">
+          <div class="facility-slide"><img src="f1.jpg" alt="Facility 1" loading="lazy"></div>
+          <div class="facility-slide"><img src="f2.jpg" alt="Facility 2" loading="lazy"></div>
+          <div class="facility-slide"><img src="f3.jpg" alt="Facility 3" loading="lazy"></div>
+      </div>
+      <button class="facility-btn prev" id="prevBtn">❮</button>
+      <button class="facility-btn next" id="nextBtn">❯</button>
+  </div>
+</section>
+<footer class="site-footer reveal">
+  <div class="footer-container">
+
+    <div class="footer-brand">
+      <img src="logo.png" alt="Allied Medical Services Logo">
+      <p>Original Embalming Services East of the Niger</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-locations">
+      <h4>Our Locations</h4>
+
+      <div class="location">
+        <strong>Aba Branch</strong>
+        <a href="https://www.google.com/maps/search/?api=1&query=Km2+Aba-Enugu+Expressway+Osisioma+Aba+Abia+State" target="_blank">
+          Km2, Aba–Enugu Expressway, Osisioma, Aba, Abia State
+        </a>
+        <a href="tel:08034914899">0803 491 4899</a>
+      </div>
+
+      <div class="location">
+        <strong>Anambra Branch (Nkwelle)</strong>
+        <a href="https://www.google.com/maps/search/?api=1&query=Nkwelle+Expressway+Anambra+State" target="_blank">
+          Nkwelle Expressway, Anambra State
+        </a>
+        <a href="tel:+2347056789351">+234 705 678 9351</a>
+      </div>
+
+      <div class="location">
+        <strong>Apex Specialist Nig. Ltd – Igbo-Ukwu (Annex)</strong>
+        <a href="https://www.google.com/maps/search/?api=1&query=Igbo-Ukwu+Anambra+State" target="_blank">
+          Igbo-Ukwu, Anambra State
+        </a>
+        <a href="tel:+2348086005243">+234 808 600 5243</a>
+        <a href="tel:+2348150409411">+234 815 040 9411</a>
+      </div>
+
+      <div class="location">
+        <strong>Apex Specialist Nig. Ltd – Awka</strong>
+        <a href="https://www.google.com/maps/search/?api=1&query=Awka+Anambra+State" target="_blank">
+          Awka, Anambra State
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © <span id="year"></span> Allied Medical Services Ltd. All rights reserved.
+  </div>
 </footer>
 
+<a href="tel:08034914899" class="call-float"><img src="phone.png"></a>
+
 <a href="tel:08034914899" class="call-float">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    <img src="phone.png" alt="Call Now" loading="lazy">
 </a>
 
 <script>
-    // Reveal On Scroll
-    const observerOptions = { threshold: 0.1 };
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Header Shrink on Scroll
-    window.addEventListener('scroll', () => {
-        const header = document.getElementById('mainHeader');
-        if (window.scrollY > 50) header.classList.add('scrolled');
-        else header.classList.remove('scrolled');
-    });
-
-    // Mobile Menu
     const menuBtn = document.getElementById('menuBtn');
     const navMenu = document.getElementById('navMenu');
-    menuBtn.onclick = () => {
-        navMenu.style.right = navMenu.style.right === '0px' ? '-100%' : '0px';
-    };
+    menuBtn.addEventListener('click', () => { navMenu.classList.toggle('active'); });
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const track = document.getElementById('track');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    let index = 0;
+    nextBtn.addEventListener('click', () => { index = (index + 1) % 3; track.style.transform = `translateX(-${index * 100}%)`; });
+    prevBtn.addEventListener('click', () => { index = (index - 1 + 3) % 3; track.style.transform = `translateX(-${index * 100}%)`; });
+
+    let currentHero = 1;
+    setInterval(() => {
+        document.getElementById(currentHero === 1 ? 'bgOne' : 'bgTwo').classList.remove('active');
+        document.getElementById(currentHero === 1 ? 'heroOne' : 'heroTwo').classList.remove('active');
+        currentHero = currentHero === 1 ? 2 : 1;
+        document.getElementById(currentHero === 1 ? 'bgOne' : 'bgTwo').classList.add('active');
+        document.getElementById(currentHero === 1 ? 'heroOne' : 'heroTwo').classList.add('active');
+    }, 8000);
+
+    const reveals = document.querySelectorAll('.reveal');
+    window.addEventListener('scroll', () => {
+        reveals.forEach(reveal => {
+            if(reveal.getBoundingClientRect().top < window.innerHeight - 100) reveal.classList.add('visible');
+        });
+    });
 </script>
-
 </body>
 </html>
