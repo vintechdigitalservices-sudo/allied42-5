@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Allied Medical Services | 24/7 Embalming & Ambulance Nigeria</title>
+<meta name="description" content="Call Allied Medical Services for professional embalming and dead body transportation. 24/7 service across Aba, Anambra and Igbo-Ukwu.">
+
+<style>
+:root {
+  --primary: #0B3C5D;
+  --accent: #C9A24D;
+  --text-main: #2D3436;
+  --text-light: #636E72;
+  --bg-light: #F0F4F8;
+  --white: #ffffff;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+body {
+  color: var(--text-main);
+  background-color: var(--bg-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0; width: 100%; height: 80px;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+  z-index: 1000;
+}
+
+.logo img { height: 50px; width: auto; }
+
+.menu-trigger {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  color: var(--primary);
+  background: #f0f2f5;
+  padding: 8px 16px;
+  border-radius: 50px;
+  transition: var(--transition);
+}
+
+.menu-trigger:hover { background: #e2e6ea; }
+
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--primary);
+  margin: 4px 0;
+}
+
+/* NAVIGATION */
+nav {
+  position: fixed;
+  top: 0; right: -100%;
+  width: 320px; height: 100vh;
+  background: var(--primary);
+  padding: 100px 40px;
+  transition: var(--transition);
+  z-index: 999;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+}
+nav.active { right: 0; }
+nav ul { list-style: none; }
+nav ul li { margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* HERO */
+.hero {
+  height: 50vh;
+  margin-top: 80px; 
+  background: linear-gradient(rgba(11, 60, 93, 0.85), rgba(11, 60, 93, 0.85)), 
+              url("contact-hero.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+}
+
+.hero-content {
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+/* CONTACT SECTION */
+.contact-container {
+  max-width: 1100px;
+  margin: 60px auto 100px;
+  padding: 0 20px;
+  animation: fadeUp 1s ease-out 0.2s both;
+}
+
+.contact-card-main {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 60px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+}
+
+/* ADDRESS LINKS */
+.address-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: var(--transition);
+}
+
+.address-link:hover .address-text {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.map-icon-label {
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* GRID LAYOUT */
+.locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.branch-box {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid #ebeef2;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.branch-box:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.branch-box h3 {
+  color: var(--primary);
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+.branch-box p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.call-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--bg-light);
+  color: var(--primary);
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: var(--transition);
+  margin-bottom: 10px;
+}
+
+.call-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* FINAL CTA */
+.action-footer {
+  margin-top: 60px;
+  padding: 40px;
+  background: #f8fafc;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.big-call-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--primary);
+  padding: 18px 45px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  transition: var(--transition);
+  animation: pulse 2s infinite;
+}
+
+/* FLOATING BUTTON */
+.float-btn {
+  position: fixed;
+  bottom: 30px; right: 30px;
+  width: 65px; height: 65px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(201,162,77,0.4);
+  z-index: 1001;
+  transition: var(--transition);
+}
+
+.float-btn:hover { transform: scale(1.1) rotate(15deg); }
+
+@media (max-width: 768px) {
+  .hero { height: 40vh; }
+  .contact-card-main { padding: 30px 20px; }
+  .contact-container { margin-top: 40px; }
+  nav { width: 100%; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="logo">
+    <img src="logo.png" alt="Allied Medical Services Logo">
+  </a>
+  <div class="menu-trigger" id="menuBtn">
+    <div class="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+    <span>MENU</span>
+  </div>
+</header>
+
+<nav id="navMenu">
+  <ul>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Contact Us</h1>
+    <p>Professional embalming and dead body transportation across Nigeria, available 24/7.</p>
+  </div>
+</section>
+
+<section class="contact-container">
+  <div class="contact-card-main">
+    <div class="header-block">
+      <h2>Our Locations & Phone Numbers</h2>
+    </div>
+
+    <div class="locations-grid">
+      
+      <div class="branch-box">
+        <h3>Aba Branch</h3>
+        <a href="https://www.google.com/maps/search/?api=1&query=Km2+Aba-Enugu+Expressway+Osisioma+Aba+Abia+State" target="_blank" class="address-link">
+          <span class="map-icon-label"> View on Map</span>
+          <p class="address-text">Km2, Aba–Enugu Expressway, Osisioma, Aba, Abia State</p>
+        </a>
+        <a href="tel:08034914899" class="call-btn">0803 491 4899</a>
+      </div>
+
+      <div class="branch-box">
+        <h3>Anambra Branch</h3>
+        <a href="https://www.google.com/maps/search/?api=1&query=Nkwelle+Expressway+Anambra+State" target="_blank" class="address-link">
+          <span class="map-icon-label">View on Map</span>
+          <p class="address-text">Nkwelle Expressway, Anambra State</p>
+        </a>
+        <a href="tel:+2347056789351" class="call-btn">+234 705 678 9351</a>
+      </div>
+
+      <div class="branch-box">
+        <h3>Igbo-Ukwu (Apex)</h3>
+        <a href="https://www.google.com/maps/search/?api=1&query=Apex+Specialist+Igbo-Ukwu+Aguata+Anambra" target="_blank" class="address-link">
+          <span class="map-icon-label"> View on Map</span>
+          <p class="address-text">Igbo-Ukwu, Aguata LGA, Anambra State, Nigeria</p>
+        </a>
+        <a href="tel:+2348086005243" class="call-btn">+234 808 600 5243</a>
+        <a href="tel:+2348150409411" class="call-btn">+234 815 040 9411</a>
+      </div>
+
+      <div class="branch-box">
+        <h3>Awka (Apex)</h3>
+        <a href="https://www.google.com/maps/search/?api=1&query=Apex+Drive+Secretariat+Road+Awka+Anambra" target="_blank" class="address-link">
+          <span class="map-icon-label"> View on Map</span>
+          <p class="address-text">
+            Apex Drive, Off Secretariat Road,<br>
+            Awka South Local Government,<br>
+            Anambra State, Nigeria
+          </p>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="action-footer">
+      <p>If you need immediate assistance, please call any of the numbers above.</p>
+      <a href="tel:08034914899" class="big-call-btn">Speak to Us Now</a>
+    </div>
+  </div>
+</section>
+
+<a href="tel:08034914899" class="float-btn">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+  </svg>
+</a>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navMenu = document.getElementById("navMenu");
+
+menuBtn.onclick = (e) => {
+  e.stopPropagation();
+  navMenu.classList.toggle("active");
+};
+
+document.onclick = (e) => {
+  if (!navMenu.contains(e.target) && e.target !== menuBtn) {
+    navMenu.classList.remove("active");
+  }
+};
+</script>
+
+</body>
+</html>
